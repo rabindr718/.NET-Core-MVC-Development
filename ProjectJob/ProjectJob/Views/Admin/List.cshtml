@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Admins";
+}
+
+<h1>@ViewData["Title"]</h1>
+@if (ViewBag.ErrorMessage != null)
+{
+    <p style="color:red;">@ViewBag.ErrorMessage</p>
+}
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Role</th>
+                <th>EDIT</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var admins in Model)
+            {
+                <tr>
+                    <td>@admins.Name</td>
+                    <td>@admins.Email</td>
+                    <td>@admins.Phone</td>
+                    <td >@admins.Address</td>
+                    <td >@admins.IsRole</td>
+                    <td>
+                        <a class="editbtn" asp-controller="Admin" asp-action="Edit" asp-route-id="@admins.id">Edit</a>
+                    </td>
+                    <td>
+                        <form method="post" asp-controller="Admin" asp-action="Delete" asp-route-id="@admins.id">
+                            <button class="deletebtn" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
