@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ProjectJob.Models.Entitiy.Admin
+<h5>Edit Admins</h5>
+@if (Model is null)
+{
+	<p>No Admins Founds with this IDENTITY</p>
+}
+else
+{
+	<div class="editDiv">
+		<form method="post">
+			<div>
+				<label>Name</label>
+				<input type="text" placeholder="Enter Your name" asp-for="Name" />
+			</div>
+			<div>
+				<label>Number</label>
+				<input type="text" placeholder="Enter Your Number" asp-for="Phone" />
+			</div>
+
+			<div>
+				<label>Email_id</label>
+				<input type="text" placeholder="Enter Your Email" asp-for="Email" />
+			</div>
+
+			<div>
+				<div>
+					<label>Name</label>
+					<input type="text" placeholder="Enter Your Address" asp-for="Address" />
+				</div>
+
+				<div class="radiobtn">
+					<div class="radiobtn-wrapper">
+						<input type="radio" id="admin" name="role" value="Admin" asp-for="IsRole">
+						<label for="admin">Admin</label>
+
+						<input type="radio" id="user" name="role" value="User" asp-for="IsRole">
+						<label for="user">User</label><br>
+					</div>
+				</div>
+
+				<div>
+					<button class="submitbtn" type="submit">Submit</button>
+				</div>
+
+			</div>
+		</form>
+
+	</div>
+};
